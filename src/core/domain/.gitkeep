@@ -1,0 +1,3 @@
+# Core Domain
+# Tipos puros, DTOs, Value Objects
+# PROIBIDO: Classes, mutações, dependências externas
