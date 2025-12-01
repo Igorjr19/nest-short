@@ -45,6 +45,10 @@ export default [
       'unicorn/filename-case': ['error', { case: 'kebabCase' }],
       'unicorn/prefer-node-protocol': 'error',
       'unicorn/no-array-for-each': 'warn',
+
+      // Complexidade (mantido ativamente pelo typescript-eslint)
+      complexity: ['error', { max: 10 }],
+      '@typescript-eslint/max-params': ['error', { max: 4 }],
     },
   },
   // ============================================

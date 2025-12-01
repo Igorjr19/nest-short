@@ -1,4 +1,6 @@
 onlyBuiltDependencies:
+  - '@compodoc/compodoc'
   - '@nestjs/core'
+  - es5-ext
   - esbuild
   - unrs-resolver

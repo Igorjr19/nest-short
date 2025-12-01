@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "pnpm",
+  "testRunner": "jest",
+  "testRunnerNodeArgs": ["--experimental-vm-modules"],
+  "jest_comment": "Jest configuration is read from package.json automatically",
+  "plugins": [
+    "@stryker-mutator/jest-runner",
+    "@stryker-mutator/typescript-checker"
+  ],
+  "checkers": ["typescript"],
+  "tsconfigFile": "tsconfig.json",
+  "coverageAnalysis": "off",
+  "mutate": [
+    "src/**/*.ts",
+    "!src/**/*.spec.ts",
+    "!src/**/*.test.ts",
+    "!src/**/index.ts",
+    "!src/main.ts"
+  ],
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": 0
+  },
+  "reporters": ["html", "clear-text", "progress"],
+  "htmlReporter": {
+    "fileName": "mutation-report.html"
+  },
+  "ignorePatterns": ["dist", "node_modules", "coverage", ".stryker-tmp"],
+  "timeoutMS": 60000,
+  "concurrency": 4
+}
