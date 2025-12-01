@@ -1,3 +1,4 @@
+import helmet from '@fastify/helmet';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -17,6 +18,8 @@ async function bootstrap(): Promise<void> {
     AppModule,
     new FastifyAdapter(),
   );
+
+  await app.register(helmet);
 
   // Servir arquivos estáticos (CSS puro)
   app.useStaticAssets({
