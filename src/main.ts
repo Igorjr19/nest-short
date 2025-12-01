@@ -5,6 +5,7 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import * as handlebars from 'handlebars';
+import { Logger } from 'nestjs-pino';
 import { join } from 'node:path';
 import process from 'node:process';
 import { AppModule } from './app.module';
@@ -16,8 +17,15 @@ const viewsDir = join(__dirname, 'infrastructure', 'views');
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter(),
+    new FastifyAdapter({ logger: false }),
+    { bufferLogs: true },
   );
+
+  // Usar Pino Logger
+  const logger = app.get(Logger);
+
+  app.useLogger(logger);
+  app.flushLogs();
 
   await app.register(helmet);
 
@@ -35,9 +43,11 @@ async function bootstrap(): Promise<void> {
     },
   });
 
+  const host = process.env['HOST'] || '0.0.0.0';
   const port = process.env['PORT'] ?? 3000;
-  await app.listen(port, '0.0.0.0');
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  await app.listen(port, host);
+
+  logger.log(`🚀 Aplicação rodando em http://${host}:${port}`);
 }
 
 bootstrap();
