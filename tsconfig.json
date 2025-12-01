@@ -37,11 +37,21 @@
     "noPropertyAccessFromIndexSignature": true,
     "forceConsistentCasingInFileNames": true,
 
-    // Path mapping
+    // Path mapping - Clean Architecture
     "paths": {
+      "@/*": ["src/*"],
       "@core/*": ["src/core/*"],
+      "@core/domain/*": ["src/core/domain/*"],
+      "@core/schemas/*": ["src/core/schemas/*"],
+      "@core/utils/*": ["src/core/utils/*"],
       "@application/*": ["src/application/*"],
-      "@infrastructure/*": ["src/infrastructure/*"]
+      "@application/use-cases/*": ["src/application/use-cases/*"],
+      "@application/ports/*": ["src/application/ports/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@infrastructure/controllers/*": ["src/infrastructure/controllers/*"],
+      "@infrastructure/database/*": ["src/infrastructure/database/*"],
+      "@infrastructure/repositories/*": ["src/infrastructure/repositories/*"],
+      "@infrastructure/modules/*": ["src/infrastructure/modules/*"]
     }
   }
 }

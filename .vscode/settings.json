@@ -1,15 +1,81 @@
 {
-  "[typescript][typescriptreact][javascript][javascriptreact][json]": {
-    "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.codeActionsOnSave.mode": "all",
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "always",
-            "source.organizeImports": "always"
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
 
-  },
-  "js/ts.implicitProjectConfig.checkJs": true,
+  // TypeScript
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.inlayHints.parameterNames.enabled": "all",
-  "cSpell.words": ["nestjs"]
+  "js/ts.implicitProjectConfig.checkJs": true,
+
+  // ESLint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.useFlatConfig": true,
+  "eslint.codeActionsOnSave.mode": "all",
+
+  // Path Intellisense
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+
+  // Arquivos para excluir da busca
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/coverage": true,
+    "**/.husky": true,
+    "**/build": true,
+    "pnpm-lock.yaml": true
+  },
+
+  // Associação de arquivos
+  "files.associations": {
+    "*.hbs": "handlebars",
+    ".dependency-cruiser.cjs": "javascript"
+  },
+
+  // Jest
+  "jest.autoRun": "off",
+
+  // Prettier
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Spell Checker
+  "cSpell.words": ["nestjs", "orchid", "depcruise", "commitlint", "fastify"],
+
+  // NestJS
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/coverage/**": true
+  }
 }
